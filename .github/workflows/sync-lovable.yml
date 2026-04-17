@@ -28,7 +28,14 @@ jobs:
 
       - name: Rsync files from source
         run: |
-          rsync -av --delete --exclude='.git' --exclude='.github' /tmp/lovable-src/ .
+          rsync -av --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='vite.config.ts' \
+            --exclude='index.html' \
+            --exclude='netlify.toml' \
+            --exclude='src/main.tsx' \
+            /tmp/lovable-src/ .
 
       - name: Commit changes
         run: |
