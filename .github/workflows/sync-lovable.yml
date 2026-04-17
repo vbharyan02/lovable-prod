@@ -28,7 +28,7 @@ jobs:
 
       - name: Rsync files from source
         run: |
-          rsync -av --exclude='.git' /tmp/lovable-src/ .
+          rsync -av --delete --exclude='.git' --exclude='.github' /tmp/lovable-src/ .
 
       - name: Commit changes
         run: |
